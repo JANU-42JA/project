@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Welcome to Cat Shop</title>
+<style>
+  body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0; padding: 0;
+    background-color: blanchedalmond;
+    color: black;
+  }
+
+
+  #welcome-screen {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #a0e7e5, #b4f8c8);
+    animation: fadeIn 1s ease forwards;
+  }
+
+  #welcome-screen h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: slideDown 1s ease forwards;
+  }
+
+  #welcome-screen button {
+    font-size: 1.5rem;
+    padding: 15px 40px;
+    background-color: darkcyan;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 128, 128, 0.7);
+    animation: pulse 2s infinite;
+    transition: background-color 0.3s ease;
+  }
+  #welcome-screen button:hover {
+    background-color: teal;
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  @keyframes slideDown {
+    from {transform: translateY(-50px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 15px rgba(0,128,128,0.7);}
+    50% { box-shadow: 0 0 30px rgba(0,128,128,1);}
+  }
+
+  #shop-container {
+    display: none;
+    padding: 20px;
+  }
+
+  
+  .nav-tabs {
+    display: flex;
+    justify-content: center;
+    background: aqua;
+    padding: 10px 0;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  .nav-tabs a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 0 25px;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+    cursor: pointer;
+  }
+
+  .nav-tabs a:hover,
+  .nav-tabs a.active {
+    color: darkblue;
+  }
+
+  .nav-tabs a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 0;
+    background-color: darkblue;
+    transition: width 0.3s ease;
+    border-radius: 2px;
+  }
+
+  .nav-tabs a:hover::after,
+  .nav-tabs a.active::after {
+    width: 100%;
+  }
+
+  .cat-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 30px;
+    gap: 20px;
+    perspective: 1000px;
+  }
+
+  .cat {
+    margin: 20px;
+    border: 2px solid black;
+    background-color: pink;
+    border-radius: 55px;
+    padding: 10px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transform-style: preserve-3d; 
+    cursor: pointer;
+  }
+
+  .cat:hover {
+    transform: scale(1.05) rotateY(15deg) rotateX(5deg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .cat img {
+    width: 100%;
+    height: auto;
+    border-radius: 30px;
+    object-fit: cover;
+  }
+
+  .cat h3 {
+    margin: 10px 0 5px;
+    font-size: 2rem;
+  }
+
+  .cat p {
+    margin: 6px 0;
+    font-size: 1.2rem;
+  }
+
+  .price {
+    font-weight: bold;
+    color: darkblue;
+    margin-top: 6px;
+  }
+
+  .add-to-cart-btn {
+    margin-top: 10px;
+    padding: 7px 15px;
+    font-size: 1rem;
+    background-color: green;
+    border-radius: 4px;
+    color: azure;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+  }
+  .add-to-cart-btn:hover {
+    background-color: darkgreen;
+    transform: scale(1.1);
+  }
+
+  footer {
+    background: aqua;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+  }
+</style>
+</head>
+<body>
+
+  <div id="welcome-screen">
+    <h1>🐈 Welcome to Cat Shop 🐾</h1>
+    <button id="enter-shop-btn">Enter the Shop</button>
+  </div>
+
+ 
+  <div id="shop-container">
+    <nav class="nav-tabs">
+      <a href="#home" class="active">Home</a>
+      <a href="#cats">Cats</a>
+      <a href="#shop">Shop</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <header>
+      <h1>🐈 CAT SHOP 🐈</h1>
+      <p>Cats have a unique charm that sets them apart from other pets.</p>
+    </header>
+
+    <div class="container my-4">
+      <h2 style="text-align: center;">Unique Cats</h2>
+      <div class="cat-list">
+
+        <div class="cat">
+          <h3>Fluffy</h3>
+          <img src="./img/cats3.jpg" alt="Cute Cat" />
+          <p>Playful and friendly cat.</p>
+          <p class="price">$1300</p>
+           <button class="add-to-cart-btn" onclick="location.href='prog3.html' "> Add to card</button>
+        </div>
+
+        <div class="cat">
+          <h3>Whiskers</h3>
+          <img src="./img/cats2.jpg" alt="Adorable Cat" />
+          <p>Loves to nap and cuddle.</p>
+          <p class="price">$1500</p>
+         <button class="add-to-cart-btn" onclick="location.href='prog3.html' "> Add to card</button>
+        </div>
+
+        <div class="cat">
+          <h3>Lucky</h3>
+          <img src="./img/cat.webp" alt="Smart Cat" />
+          <p>Smart and lovely cat.</p>
+          <p class="price">$1200</p>
+          <button class="add-to-cart-btn" onclick="location.href='prog3.html' "> Add to card</button>
+        </div>
+
+        <div class="cat">
+          <h3>Cuty</h3>
+          <img src="./img/cats5.jpeg" alt="Cute Cat" />
+          <p>It is a cute cat.</p>
+          <p class="price">$1800</p>
+         <button class="add-to-cart-btn" onclick="location.href='prog3.html' "> Add to card</button>
+        </div>
+
+        <div class="cat">
+          <h3>Jas</h3>
+          <img src="./img/cats6.jpg" alt="Smart Cat" />
+          <p>Jas is a cute and smart cat.</p>
+          <p class="price">$1600</p>
+          <button class="add-to-cart-btn" onclick="location.href='prog3.html' "> Add to card</button>
+        </div>
+
+      </div>
+    </div>
+
+    <footer>
+      <p><strong>© 2025 Cat Shop. All rights reserved.</strong></p>
+      <p>Contact: <a href="mailto:cats@example.com">cats@example.com</a> | Phone: (123) 456-7890</p>
+
+      <div style="margin-top: 10px;">
+        <a href="/about" style="margin: 0 10px;">About Us</a> |
+        <a href="/privacy-policy" style="margin: 0 10px;">Privacy Policy</a> |
+        <a href="/terms" style="margin: 0 10px;">Terms of Service</a> |
+        <a href="/faq" style="margin: 0 10px;">FAQ</a>
+      </div>
+
+      <div style="margin-top: 15px;">
+        <span>Follow us:</span>
+        <a href="#" style="margin: 0 5px;">🐦 Twitter</a>
+        <a href="#" style="margin: 0 5px;">📘 Facebook</a>
+        <a href="#" style="margin: 0 5px;">📸 Instagram</a>
+      </div>
+    </footer>
+  </div>
+
+<script>
+  
+  document.getElementById('enter-shop-btn').addEventListener('click', () => {
+    document.getElementById('welcome-screen').style.display = 'none';
+    document.getElementById('shop-container').style.display = 'block';
+  });
+
+  const tabs = document.querySelectorAll('.nav-tabs a');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', e => {
+      e.preventDefault();
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
